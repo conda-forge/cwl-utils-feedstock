@@ -51,6 +51,7 @@ test:
     - pip
     - pytest-xdist
     - pytest-mock
+    - nodejs
 
 about:
   home: https://github.com/common-workflow-language/cwl-utils
