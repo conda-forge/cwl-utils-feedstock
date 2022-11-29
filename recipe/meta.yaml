@@ -50,6 +50,7 @@ test:
   requires:
     - pip
     - pytest-xdist
+    - pytest-mock
 
 about:
   home: https://github.com/common-workflow-language/cwl-utils
