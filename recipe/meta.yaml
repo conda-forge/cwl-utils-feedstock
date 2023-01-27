@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - cwl-cite-extract = cwl_utils.cite_extract:main
     - cwl-docker-extract = cwl_utils.docker_extract:main
@@ -27,14 +27,16 @@ requirements:
   run:
     - python >=3.6
     - cwl-upgrader >=1.2.3
-    # From extras[pretty], for cwl-graph-split. An alternative for this would be to build for
-    # multiple outputs, e.g. https://github.com/conda-forge/matplotlib-feedstock/blob/2ca6433797f0a4f77fee890c6fa39617a6a6b0b4/recipe/meta.yaml#L17
+    # cwl-upgrader is for cwl-normalizer (cwl_utils/normalizer.py)
     - cwlformat
+    # cwlformat is from extras[pretty], for cwl-graph-split. An alternative for this would be to build for
+    # multiple outputs, e.g. https://github.com/conda-forge/matplotlib-feedstock/blob/2ca6433797f0a4f77fee890c6fa39617a6a6b0b4/recipe/meta.yaml#L17
     - packaging
     - rdflib
     - requests
     - CacheControl
     - schema-salad >=8.3.20220825114525,<9
+    - ruamel.yaml
 
 test:
   imports:
