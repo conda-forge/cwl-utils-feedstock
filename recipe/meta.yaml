@@ -1,5 +1,5 @@
 {% set name = "cwl-utils" %}
-{% set version = "0.22" %}
+{% set version = "0.23" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cwl-utils-{{ version }}.tar.gz
-  sha256: a66ff2bb81d19995af9507d6979ffaa0eeb4950ed788c4f9cce127774fc148e4
+  sha256: 45b9303f5caf246375da2c25df35d580966e9fb33f91dfb93846bd1031aa427b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   entry_points:
     - cwl-cite-extract = cwl_utils.cite_extract:main
     - cwl-docker-extract = cwl_utils.docker_extract:main
