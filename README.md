@@ -1,11 +1,11 @@
-About cwl-utils
-===============
+About cwl-utils-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cwl-utils-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/common-workflow-language/cwl-utils
 
 Package license: Apache-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cwl-utils-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python utilities for CWL
 
