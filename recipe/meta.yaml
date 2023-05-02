@@ -1,5 +1,5 @@
 {% set name = "cwl-utils" %}
-{% set version = "0.24" %}
+{% set version = "0.25" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cwl-utils-{{ version }}.tar.gz
-  sha256: a0e4ea659d16c383c74cc44d882db609efeabb379d896221dc391b898078ba27
+  sha256: 26351558a862ec8ccfe2b12c2c08862ada203176f32d8c57aafa5d0627e687d3
 
 build:
   noarch: python
