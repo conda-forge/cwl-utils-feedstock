@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - cwl-cite-extract = cwl_utils.cite_extract:main
     - cwl-docker-extract = cwl_utils.docker_extract:main
@@ -34,9 +34,10 @@ requirements:
     - packaging
     - rdflib
     - requests
-    - CacheControl
+    - CacheControl <0.13
+    - urllib3 <2
     - schema-salad >=8.3.20220825114525,<9
-    - ruamel.yaml
+    - ruamel.yaml >=0.17.6
 
 test:
   imports:
