@@ -12,7 +12,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - cwl-cite-extract = cwl_utils.cite_extract:main
     - cwl-docker-extract = cwl_utils.docker_extract:main
@@ -23,10 +23,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
-    - setuptools
+    - python {{ python_min }}
+    - setuptools >=61.2
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - cwl-upgrader >=1.2.3
     # cwl-upgrader is for cwl-normalizer (cwl_utils/normalizer.py)
     - cwlformat
@@ -35,8 +35,8 @@ requirements:
     - packaging
     - rdflib
     - requests
-    - schema-salad >=8.3.20220825114525,<9
-    - ruamel.yaml >=0.17.6,<0.18
+    - schema-salad >=8.8.20241206093842,<9
+    - ruamel.yaml >=0.17.6,<0.19
 
 test:
   imports:
@@ -50,6 +50,7 @@ test:
     - cwl-normalizer --help
     - python -m pytest -n auto --pyargs cwl_utils
   requires:
+    - python {{ python_min }}
     - pip
     - pytest-xdist
     - pytest-mock
