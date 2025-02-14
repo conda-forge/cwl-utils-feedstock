@@ -19,6 +19,7 @@ build:
     - cwl-expression-refactor = cwl_utils.expression_refactor:main
     - cwl-graph-split = cwl_utils.graph_split:main
     - cwl-normalizer = cwl_utils.normalizer:main
+    - cwl-inputs-schema-gen = cwl_utils.inputs_schema_gen:main
 
 requirements:
   host:
@@ -35,7 +36,7 @@ requirements:
     - packaging
     - rdflib
     - requests
-    - schema-salad >=8.8.20241206093842,<9
+    - schema-salad >=8.8.20250205075315,<9
     - ruamel.yaml >=0.17.6,<0.19
 
 test:
@@ -53,8 +54,9 @@ test:
     - python {{ python_min }}
     - pip
     - pytest-xdist
-    - pytest-mock
+    - pytest-mock >=1.10.0
     - nodejs
+    - jsonschema >=4.21.1
 
 about:
   home: https://github.com/common-workflow-language/cwl-utils
