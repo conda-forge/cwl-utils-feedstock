@@ -3,16 +3,13 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 74c03bc62e9d58fc20f9b2c17e9c3b29e8f11de111f20efb3b0e1ae74ec748f2
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
   entry_points:
     - cwl-cite-extract = cwl_utils.cite_extract:main
     - cwl-docker-extract = cwl_utils.docker_extract:main
@@ -20,12 +17,15 @@ build:
     - cwl-graph-split = cwl_utils.graph_split:main
     - cwl-normalizer = cwl_utils.normalizer:main
     - cwl-inputs-schema-gen = cwl_utils.inputs_schema_gen:main
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
     - pip
     - python {{ python_min }}
-    - setuptools >=61.2
+    - hatchling >=1.27.0
   run:
     - python >={{ python_min }}
     - cwl-upgrader >=1.2.3
@@ -37,7 +37,8 @@ requirements:
     - rdflib
     - requests
     - schema-salad >=8.8.20250205075315,<9
-    - ruamel.yaml >=0.17.6,<0.19
+    - ruamel.yaml >=0.17.6,<0.20
+    - typing_extensions >=4.10.0
 
 test:
   imports:
@@ -49,6 +50,7 @@ test:
     - cwl-expression-refactor --help
     - cwl-graph-split --help
     - cwl-normalizer --help
+    - cwl-inputs-schema-gen --help
     - python -m pytest -n auto --pyargs cwl_utils
   requires:
     - python {{ python_min }}
