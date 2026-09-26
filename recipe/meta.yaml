@@ -1,5 +1,5 @@
 {% set name = "cwl-utils" %}
-{% set version = "0.44" %}
+{% set version = "0.45" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: dad3c6a0ed55d6661fa7841713489555a1be6429396a2362b12fe6423c90da0c
+  sha256: 5883f39a0f2870a2fae550de1fdab3145286f1280fb099841f50ccbc9866e5f4
 
 build:
   entry_points:
