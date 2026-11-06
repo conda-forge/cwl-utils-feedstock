@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: cwl-utils
-  version: "0.46"
+  version: "0.47"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | replace('-', '_') }}-${{ version }}.tar.gz
-  sha256: 6a0192a30c01c1c9af444b173b29a2d140a7f0c7326c2d6c7c694a9a0b21a46d
+  sha256: eb077afc7265c7549ee847b778bcfa85315dffcf4cfc4e1210e19bf89154eb60
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
